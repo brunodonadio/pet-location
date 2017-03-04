@@ -1,0 +1,22 @@
+{
+  "name": "pet-location",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brunodonadio/pet-location.git"
+  },
+  "author": "Bruno Donadío",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brunodonadio/pet-location/issues"
+  },
+  "homepage": "https://github.com/brunodonadio/pet-location#readme",
+  "dependencies": {
+    "angular": "^1.6.2"
+  }
+}
