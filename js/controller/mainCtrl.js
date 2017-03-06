@@ -33,4 +33,10 @@ angular.module('petLocationApp', ['ngMap', 'ngFileUpload'])
 
             return position;
         };
+
+        $scope.showPetDetails = function (pet) {
+            $scope.petDetails = pet;
+
+            $('#pet-details-modal').modal('open');
+        }
     }]);
