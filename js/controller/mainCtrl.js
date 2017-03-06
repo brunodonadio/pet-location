@@ -19,6 +19,16 @@ angular.module('petLocationApp', ['ngMap', 'ngFileUpload'])
             };
 
             $scope.pets.push(newPet);
+
+            $scope.resetPetForm();
+        };
+
+        $scope.resetPetForm = function () {
+            $scope.name = null;
+            $scope.plight = null;
+            $scope.photo = null;
+
+            $('.select-dropdown').val('');
         };
 
         $scope.getRandomPosition = function (map) {

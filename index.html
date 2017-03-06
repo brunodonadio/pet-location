@@ -37,7 +37,8 @@
             <div class="modal-footer">
                 <a id="add-pet" href="#!" class="modal-action modal-close waves-effect waves-light btn red"
                    ng-click="addPet(name, plight, photo)" ng-disabled="!name || !plight">Add It!</a>
-                <a href="#!" class="modal-action modal-close waves-effect waves-light btn-flat">Cancel</a>
+                <a href="#!" class="modal-action modal-close waves-effect waves-light btn-flat"
+                   ng-click="resetPetForm()">Cancel</a>
             </div>
         </div>
 
@@ -52,7 +53,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <a href="#!" class="modal-action modal-close waves-effect waves-light btn-flat">Cancel</a>
+                <a href="#!" class="modal-action modal-close waves-effect waves-light btn-flat">Close</a>
             </div>
         </div>
 
@@ -75,10 +76,6 @@
             });
 
             $('#add-pet').click(function () {
-                $('#name').val('');
-            });
-
-            $('#close').click(function () {
                 $('#name').val('');
             });
 
