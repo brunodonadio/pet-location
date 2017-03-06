@@ -4,6 +4,40 @@
         <link href="css/main.css" rel="stylesheet" type="text/css">
     </head>
     <body ng-controller="MainController">
+        <ng-map id="map" zoom="14" center="current-location" geo-fallback-center="-31.634113, -60.697025"></ng-map>
+        <a id="new-pet" class="waves-effect waves-light btn-large red" onclick="$('#modal').modal('open')">Add New Pet</a>
+
+        <div id="modal" class="modal modal-fixed-footer">
+            <div class="modal-content">
+                <div class="row">
+                    <div class="col s4">
+                        <input id="photo" type="file" ngf-select ng-model="photo" name="file" accept="image/*" class="hide">
+                        <div id="no-thumbnail" ng-show="!photo"></div>
+                        <img id="photo-thumbnail" ngf-thumbnail="photo" class="thumb">
+                    </div>
+                    <div class="col s8">
+                        <div class="input-field">
+                            <input id="name" type="text" placeholder="" ng-model="name">
+                            <label for="name">Name</label>
+                        </div>
+                        <div class="input-field">
+                            <select id="plight" ng-model="plight">
+                                <option disabled selected>Choose your option</option>
+                                <option value="lost">Lost</option>
+                                <option value="found">Found</option>
+                            </select>
+                            <label>Plight</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a id="add-pet" href="#!" class="modal-action modal-close waves-effect waves-light btn red"
+                   ng-disabled="!name || !plight">Add It!</a>
+                <a id="close" href="#!" class="modal-action modal-close waves-effect waves-light btn-flat">Cancel</a>
+            </div>
+        </div>
+
         <script src="node_modules/jquery/dist/jquery.min.js"></script>
         <script src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
         <script src="node_modules/angular/angular.min.js"></script>
