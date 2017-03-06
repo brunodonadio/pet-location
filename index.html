@@ -4,10 +4,10 @@
         <link href="css/main.css" rel="stylesheet" type="text/css">
     </head>
     <body ng-controller="MainController">
-        <ng-map id="map" zoom="14" center="current-location" geo-fallback-center="-31.634113, -60.697025"></ng-map>
-        <a id="new-pet" class="waves-effect waves-light btn-large red" onclick="$('#modal').modal('open')">Add New Pet</a>
+        <ng-map id="map" zoom="14" center="current-location" geo-fallback-center="-31.610648, -60.697293"></ng-map>
+        <a id="new-pet" class="waves-effect waves-light btn-large red" onclick="$('#new-pet-modal').modal('open')">Add New Pet</a>
 
-        <div id="modal" class="modal modal-fixed-footer">
+        <div id="new-pet-modal" class="modal modal-fixed-footer">
             <div class="modal-content">
                 <div class="row">
                     <div class="col s4">
@@ -33,8 +33,8 @@
             </div>
             <div class="modal-footer">
                 <a id="add-pet" href="#!" class="modal-action modal-close waves-effect waves-light btn red"
-                   ng-disabled="!name || !plight">Add It!</a>
-                <a id="close" href="#!" class="modal-action modal-close waves-effect waves-light btn-flat">Cancel</a>
+                   ng-click="addPet(name, plight, photo)" ng-disabled="!name || !plight">Add It!</a>
+                <a href="#!" class="modal-action modal-close waves-effect waves-light btn-flat">Cancel</a>
             </div>
         </div>
 
@@ -46,5 +46,36 @@
         <script src="node_modules/ng-file-upload/dist/ng-file-upload-shim.min.js"></script>
         <script src="node_modules/ng-file-upload/dist/ng-file-upload.min.js"></script>
         <script src="js/controller/mainCtrl.js"></script>
+
+        <script type="text/javascript">
+            $('#no-thumbnail').click(function () {
+                $('#photo').click();
+            });
+
+            $('#photo-thumbnail').click(function () {
+                $('#photo').click();
+            });
+
+            $('#add-pet').click(function () {
+                $('#name').val('');
+            });
+
+            $('#close').click(function () {
+                $('#name').val('');
+            });
+
+            $('#new-pet-modal').modal({
+                dismissible: true,
+                opacity: .5,
+                inDuration: 300,
+                outDuration: 200,
+                startingTop: '100%',
+                endingTop: '30%'
+            });
+
+            $(function () {
+                $('select').material_select();
+            });
+        </script>
     </body>
 </html>
