@@ -17,7 +17,7 @@
                     <div class="col s4">
                         <input id="photo" type="file" ngf-select ng-model="photo" name="file" accept="image/*" class="hide">
                         <div id="no-thumbnail" ng-show="!photo"></div>
-                        <img id="photo-thumbnail" ngf-thumbnail="photo" class="thumb">
+                        <img id="photo-thumbnail" ngf-thumbnail="photo">
                     </div>
                     <div class="col s8">
                         <div class="input-field">
@@ -26,11 +26,10 @@
                         </div>
                         <div class="input-field">
                             <select id="plight" ng-model="plight">
-                                <option disabled selected>Choose your option</option>
                                 <option value="lost">Lost</option>
                                 <option value="found">Found</option>
                             </select>
-                            <label>Plight</label>
+                            <label for="plight">Plight</label>
                         </div>
                     </div>
                 </div>
@@ -49,7 +48,7 @@
                     <h5>{{ petDetails.name }}</h5>
                     (plight: <strong>{{ petDetails.plight }}</strong>)
                     <br><br>
-                    <img id="pet-photo" ngf-thumbnail="petDetails.photo ? petDetails.photo : 'img/no-image.svg'" class="thumb">
+                    <img id="pet-photo" ngf-thumbnail="petDetails.photo ? petDetails.photo : 'img/no-image.svg'" ng-style="!petDetails.photo && { 'width': '35%' }">
                 </div>
             </div>
             <div class="modal-footer">
