@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/brunodonadio/pet-location#readme",
   "dependencies": {
-    "angular": "^1.6.2"
+    "angular": "^1.6.2",
+    "materialize-css": "^0.98.0",
+    "ng-file-upload": "^12.2.13",
+    "ngmap": "^1.18.0"
   }
 }
