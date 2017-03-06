@@ -4,7 +4,11 @@
         <link href="css/main.css" rel="stylesheet" type="text/css">
     </head>
     <body ng-controller="MainController">
-        <ng-map id="map" zoom="14" center="current-location" geo-fallback-center="-31.610648, -60.697293"></ng-map>
+        <ng-map id="map" zoom="14" center="current-location" geo-fallback-center="-31.610648, -60.697293">
+            <custom-marker ng-repeat="pet in pets" position="[{{ pet.marker.lat }}, {{ pet.marker.lng }}]">
+                <div class="pet-icon" ng-click="showPetDetails(pet)"></div>
+            </custom-marker>
+        </ng-map>
         <a id="new-pet" class="waves-effect waves-light btn-large red" onclick="$('#new-pet-modal').modal('open')">Add New Pet</a>
 
         <div id="new-pet-modal" class="modal modal-fixed-footer">
@@ -34,6 +38,21 @@
             <div class="modal-footer">
                 <a id="add-pet" href="#!" class="modal-action modal-close waves-effect waves-light btn red"
                    ng-click="addPet(name, plight, photo)" ng-disabled="!name || !plight">Add It!</a>
+                <a href="#!" class="modal-action modal-close waves-effect waves-light btn-flat">Cancel</a>
+            </div>
+        </div>
+
+        <div id="pet-details-modal" class="modal modal-fixed-footer">
+            <div class="modal-content">
+                <div class="row center-align">
+                    <img id="animal-prints-icon" src="img/animal-prints.svg"><br>
+                    <h5>{{ petDetails.name }}</h5>
+                    (plight: <strong>{{ petDetails.plight }}</strong>)
+                    <br><br>
+                    <img id="pet-photo" ngf-thumbnail="petDetails.photo ? petDetails.photo : 'img/no-image.svg'" class="thumb">
+                </div>
+            </div>
+            <div class="modal-footer">
                 <a href="#!" class="modal-action modal-close waves-effect waves-light btn-flat">Cancel</a>
             </div>
         </div>
@@ -71,6 +90,15 @@
                 outDuration: 200,
                 startingTop: '100%',
                 endingTop: '30%'
+            });
+
+            $('#pet-details-modal').modal({
+                dismissible: true,
+                opacity: .5,
+                inDuration: 300,
+                outDuration: 200,
+                startingTop: '100%',
+                endingTop: '5%'
             });
 
             $(function () {

@@ -51,3 +51,27 @@ ul.dropdown-content.select-dropdown li span {
     cursor: pointer;
     opacity: .7;
 }
+
+#pet-details-modal {
+    height: 90%;
+}
+
+#pet-details-modal #animal-prints-icon {
+    width: 36px;
+    height: 36px;
+}
+
+#pet-details-modal #pet-photo {
+    width: 100%;
+}
+
+.pet-icon {
+    width: 25px;
+    height: 25px;
+    background-image: url('../img/cat.svg');
+}
+
+.pet-icon:hover {
+    cursor: pointer;
+    opacity: .7;
+}
